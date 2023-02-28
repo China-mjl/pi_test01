@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.dao.CtcharactertypeDao">
+
+    <resultMap type="com.pitest01.mapper.weatherMapper.AreaCodeMapper" id="AreaCodeMapperMap">
+        <result property="ID" column="ID" jdbcType="INT"/>
+        <result property="AreaName" column="AreaName" jdbcType="VARCHAR"/>
+        <result property="AreaCode" column="AreaCode" jdbcType="CHAR"/>
+        <result property="Remark" column="Remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectAllAreaCode" resultMap="AreaCodeMapperMap">
+        select * from areacode where AreaName like '%${AreaName}%'
+    </select>
+
+    <select id="selectOneAreaCode" resultType="AreaCodeMapper">
+        select * from areacode where AreaName = #{AreaName}
+    </select>
+
+
+</mapper>
